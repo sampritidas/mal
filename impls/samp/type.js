@@ -82,7 +82,6 @@ class MalVector extends MalValue {
 class MalHashmap {
   constructor(value) {
     this.value = value;
-    this.startIndex = 0;
   }
 
   toString(){

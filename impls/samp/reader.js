@@ -89,10 +89,10 @@ const read_form = reader => {
     case '(' : 
       reader.next();
       return read_list(reader);
-    case "[" :
+    case '[' :
       reader.next();
       return read_vector(reader);
-    case "{" :
+    case '{' :
       reader.next();
       return read_hashmap(reader);
     default : 
