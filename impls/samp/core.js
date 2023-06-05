@@ -54,7 +54,7 @@ const ns = {
   '<=' : (...args) => 
     args.map((x,i) => args[i] <= args[i+1]).slice(0,-1).every(x => x == true),
   '>=' : (...args) => 
-    args.map((x,i) => args[i] >= args[i+1]).slice(0,-1).every(x => x == true),
+    args.map((x,i) => x >= args[i+1]).slice(0,-1).every(x => x == true),
   'not' : (a) => !(a),
   'println' : (arg) => {
       console.log(arg);
@@ -67,7 +67,6 @@ const ns = {
       return new MalString(getString(args).join(""));
   },
   'prn' : (...args) => {
-    console.log("prn----", args);
     const output = args.map(x=> x.value? `"${x.value}"` : x);
     console.log(...output);
     return new MalNil();
