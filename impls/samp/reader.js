@@ -15,12 +15,6 @@ class Reader {
     this.position++;
     return token;
   }
-
-  afterNext() {
-    const token=this.peek();
-    this.position = this.position + 2;
-    return token;
-  }
 }
 
 const tokenize = (str) => {
@@ -31,10 +25,9 @@ const tokenize = (str) => {
 };
 
 const read_seq = (reader, closingSymbol) => {
-  
   const ast = [];
 
-  while(reader.peek() != closingSymbol) {
+  while(reader.peek() !== closingSymbol) {
     if(reader.peek() === undefined) {
       throw 'unbalanced';
     }

@@ -1,4 +1,4 @@
-const { MalValue} = require("./type");
+const { MalValue } = require("./type");
 
 const pr_str = malValue => {
   if(malValue instanceof MalValue) return malValue.pr_str();

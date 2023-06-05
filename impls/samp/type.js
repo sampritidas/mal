@@ -19,7 +19,7 @@ class MalNil extends MalValue {
     super(null);
   }
 
-  pr_str() {
+  toString() {
     return 'nil';
   }
 }
@@ -42,6 +42,10 @@ class MalKeyword extends MalValue {
 
   toString() {
     return ":" + this.value.toString();
+  }
+
+  isEqual(otherIns) {
+    return otherIns instanceof MalKeyword && this.value === otherIns.value;
   }
 }
 
@@ -100,4 +104,17 @@ class MalHashmap {
   }
 }
 
-module.exports = { MalSymbol, MalValue, MalList, MalVector, MalNil, MalBoolean, MalKeyword, MalHashmap, MalString};
+class MalFunction extends MalValue{
+  constructor(ast, binds, env) {
+    super(ast);
+    this.binds= binds;
+    this.env= env;
+  }
+
+  toString() {
+    // return "#<function>";
+    return this;
+  }
+}
+
+module.exports = { MalSymbol, MalValue, MalList, MalVector, MalNil, MalBoolean, MalKeyword, MalHashmap, MalString, MalFunction};
